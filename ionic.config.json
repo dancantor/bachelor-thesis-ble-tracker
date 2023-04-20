@@ -1,0 +1,7 @@
+{
+  "name": "ble-tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
