@@ -7,7 +7,14 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'proof-of-concept',
     pathMatch: 'full',
+  },
+  {
+    path: 'proof-of-concept',
+    loadComponent: () =>
+      import('./poc/proof-of-concept/proof-of-concept.page').then(
+        (m) => m.ProofOfConceptPage
+      ),
   },
 ];
