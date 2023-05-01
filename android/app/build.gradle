@@ -1,9 +1,13 @@
-apply plugin: 'com.android.application'
+plugins {
+  id 'com.android.application'
+  id 'com.google.gms.google-services'
+  id 'com.google.firebase.crashlytics'
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "io.ionic.starter"
+        applicationId "com.ubb.bletracker"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -39,6 +43,10 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation project(':capacitor-cordova-android-plugins')
+    implementation platform('com.google.firebase:firebase-bom:31.5.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+
 }
 
 apply from: 'capacitor.build.gradle'

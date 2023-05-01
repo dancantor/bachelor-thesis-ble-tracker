@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.ionic.starter">
+    package="com.ubb.bletracker">
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,7 @@
 
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-            android:name="io.ionic.starter.MainActivity"
+            android:name="com.ubb.bletracker.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
             android:launchMode="singleTask"
@@ -37,12 +37,28 @@
     </application>
 
     <!-- Permissions -->
-    <uses-permission android:name="android.permission.BLUETOOTH"
-                     android:maxSdkVersion="30" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
-                     android:maxSdkVersion="30" />
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.bluetooth" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:required="true" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:required="true" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 </manifest>

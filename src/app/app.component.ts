@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -6,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule]
 })
 export class AppComponent {
   constructor() {}

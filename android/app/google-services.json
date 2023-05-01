@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1024387080645",
+    "project_id": "ble-tracker-e215e",
+    "storage_bucket": "ble-tracker-e215e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024387080645:android:96c75582590459995f2bac",
+        "android_client_info": {
+          "package_name": "com.ubb.bletracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024387080645-6kcfmdvami4auqirklk7236r370ldofs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx565knbCqS7emncJ0-idYMtnfce7R2GU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024387080645-6kcfmdvami4auqirklk7236r370ldofs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -43,6 +43,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>We need to track your location</string>
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>We need to track your location while your device is locked.</string>
+  <key>UIBackgroundModes</key>
+  <array>
+    <string>location</string>
+  </array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>
