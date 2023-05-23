@@ -5,6 +5,7 @@ import { Observable, Subject, first, from } from 'rxjs';
 import { ScanResultAbstraction } from '@ble/data/scan-result.abstraction';
 import { ScanningServiceException } from '@core/exceptions/scanning-service.exception';
 import { GenericDevice } from '@ble/data/generic-device';
+import { GenericDeviceCreator } from '@ble/data/factory';
 
 
 @Injectable({
@@ -25,10 +26,15 @@ export class ScanningService {
       }
       BleClient.requestLEScan({}, async (result: ScanResult) => {
         const currentUserLocation: Position = await Geolocation.getCurrentPosition();
-        const scannedDevice: ScanResultAbstraction = new GenericDevice(result, currentUserLocation);
+        const genericDeviceCreator: GenericDeviceCreator = new GenericDeviceCreator();
+        const scannedDevice: ScanResultAbstraction = genericDeviceCreator.factoryMethod(result, currentUserLocation);
         this._scannedBLEDevice.next(scannedDevice);
       })
     })
+  }
+
+  public async stopScanningForDevices(): Promise<void> {
+    return await BleClient.stopLEScan();
   }
 
   public subscribeToScannedDevices(): Observable<ScanResultAbstraction> {

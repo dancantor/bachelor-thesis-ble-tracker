@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace "com.ubb.bletracker"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.ubb.bletracker"
@@ -46,6 +47,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.5.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
+    def work_version = "2.8.1"
+    implementation "androidx.work:work-runtime:$work_version"
 
 }
 

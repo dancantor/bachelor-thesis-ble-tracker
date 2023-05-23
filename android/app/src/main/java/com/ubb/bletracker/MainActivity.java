@@ -1,5 +1,15 @@
 package com.ubb.bletracker;
 
-import com.getcapacitor.BridgeActivity;
+import android.os.Bundle;
 
-public class MainActivity extends BridgeActivity {}
+import com.getcapacitor.BridgeActivity;
+import com.ubb.bachelor.blebackgroundscan.BleBackgroundScanPlugin;
+
+
+public class MainActivity extends BridgeActivity {
+  @Override
+  public void OnCreate(Bundle savedInstanceState) {
+    registerPlugin(BleBackgroundScanPlugin.class);
+    super.onCreate(savedInstanceState);
+  }
+}
