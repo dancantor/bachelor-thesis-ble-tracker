@@ -1,0 +1,28 @@
+<app-header titleText="Threat Detection"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="title">Airtags found:</div>
+  <div class="device-container">
+    <app-threatening-device (onClick)="onCardClick($event)" *ngFor="let possibleAirTagThreat of possibleThreateningAirTags$ | async" [possibleThreat]="possibleAirTagThreat"></app-threatening-device>
+    <div class="no-devices" *ngIf="!(possibleThreateningAirTags$ | async)?.length">
+        <ion-img [src]="'assets/img/no_devices_found.jpg'"></ion-img>
+        <div>Super! No malicious AirTags found</div>
+    </div>
+  </div>
+  <div class="title">SmartTags found:</div>
+  <div class="device-container">
+    <app-threatening-device (onClick)="onCardClick($event)" *ngFor="let possibleSmartTagThreat of possibleThreateningSmartTags$ | async" [possibleThreat]="possibleSmartTagThreat"></app-threatening-device>
+    <div class="no-devices" *ngIf="!(possibleThreateningSmartTags$ | async)?.length">
+      <ion-img [src]="'assets/img/no_devices_found.jpg'"></ion-img>
+      <div>Super! No malicious SmartTags found</div>
+    </div>
+  </div>
+  <div class="title">Tiles found:</div>
+  <div class="device-container">
+    <app-threatening-device (onClick)="onCardClick($event)" *ngFor="let possibleTileThreat of possibleThreateningTiles$ | async" [possibleThreat]="possibleTileThreat"></app-threatening-device>
+    <div class="no-devices" *ngIf="!(possibleThreateningTiles$ | async)?.length">
+      <ion-img [src]="'assets/img/no_devices_found.jpg'"></ion-img>
+      <div>Super! No malicious Tiles found</div>
+    </div>
+  </div>
+</ion-content>

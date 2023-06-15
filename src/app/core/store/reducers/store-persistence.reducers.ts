@@ -2,6 +2,7 @@ import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 import * as HydrationActions from '../actions/store-persistence.actions';
 import { AppState } from '../state/app.state';
 import { StorePersistenceState } from '../state/store-persistence.state';
+import { initialLiveScanningState } from './live-scanning.reducers';
 
 export const storePersistenceInitialState: StorePersistenceState = {
   hasHydratedStore: false
@@ -30,6 +31,9 @@ export const hydrationMetaReducer = (reducer: ActionReducer<AppState>): ActionRe
         },
         storePersistenceState: {
           hasHydratedStore: true
+        },
+        liveScanningState: {
+          ...initialLiveScanningState
         }
       };
     } else {

@@ -1,3 +1,4 @@
+import { BackgroundFetchEffects } from '@core/store/effects/background-fetch.effects';
 import { HydrationEffects, StorePersistenceEffects } from './app/core/store/effects/store-persistence.effects';
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
@@ -13,6 +14,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { metaReducers, reducers } from '@core/store';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideEffects } from '@ngrx/effects';
+import { LiveScanningEffects } from '@core/store/effects/live-scanning.effects';
 
 if (environment.production) {
   enableProdMode();
@@ -26,7 +28,7 @@ bootstrapApplication(AppComponent, {
     ForegroundService,
     provideStore(reducers, {metaReducers: metaReducers}),
     provideStoreDevtools(),
-    provideEffects([HydrationEffects, StorePersistenceEffects]),
+    provideEffects([HydrationEffects, StorePersistenceEffects, LiveScanningEffects, BackgroundFetchEffects]),
     importProvidersFrom(IonicStorageModule.forRoot())
   ],
 });

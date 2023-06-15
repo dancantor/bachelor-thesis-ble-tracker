@@ -1,0 +1,17 @@
+.device-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
+  .device-id-container {
+    .device-id {
+      color: var(--font-color-2);
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .device-id-value {
+      color: var(--font-color-1);
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}

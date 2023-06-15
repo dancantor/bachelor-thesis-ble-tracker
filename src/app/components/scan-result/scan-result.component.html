@@ -1,0 +1,11 @@
+<div class="container">
+  <ion-icon *ngIf="deviceModel" [src]="'assets/icon/' + deviceModel + '.svg'"></ion-icon>
+  <ion-icon *ngIf="!deviceModel" [src]="'generic_tracker.svg'"></ion-icon>
+  <div class="info">
+    <div class="model">{{deviceModel}}</div>
+    <div class="scan-details">
+      <div class="device-id">{{deviceId}}</div>
+      <div class="scan-time">{{timeDiscovered | date:'hh:mm:ss'}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<app-header titleText="Live Scanning"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="no-devices" *ngIf="!(liveScanningResults$ | async)?.length">
+    <ion-img [src]="'assets/img/no_devices_found.jpg'"></ion-img>
+    <div>Super! No malicious Tiles found</div>
+  </div>
+  <app-scan-result *ngFor="let scanResult of (liveScanningResults$ | async); trackBy: identifyScanResult" [deviceId]="scanResult.deviceId" [deviceModel]="scanResult.deviceModel" [timeDiscovered]="scanResult.scanTime"></app-scan-result>
+</ion-content>

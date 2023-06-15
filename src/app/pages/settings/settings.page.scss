@@ -1,0 +1,28 @@
+.item-container {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  ion-icon {
+    color: var(--font-color-1);
+    font-size: 64px;
+    margin-right: 12px;
+  }
+  .checked-icon {
+    font-size: 80px;
+  }
+  .title-and-description {
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--font-color-1);
+      margin-bottom: 4px;
+    }
+    .description {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--font-color-2);
+      line-height: 24px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+ion-card {
+  width: 200px;
+  .image-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--background-color-card);
+    ion-icon {
+      font-size: 96px;
+    }
+  }
+}

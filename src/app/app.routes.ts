@@ -1,20 +1,34 @@
 import { Routes } from '@angular/router';
+import { FooterComponent } from './components/footer/footer.component';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-  },
-  {
     path: '',
-    redirectTo: 'proof-of-concept',
-    pathMatch: 'full',
+    component: FooterComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'live-scanning',
+      },
+      {
+        path: 'live-scanning',
+        loadComponent: () => import('./pages/live-scanning/live-scanning.page').then( m => m.LiveScanningPage)
+      },
+      {
+        path: 'threat-detection',
+        loadComponent: () => import('./pages/threat-detection/threat-detection.page').then( m => m.ThreatDetectionPage),
+      },
+      {
+        path: 'settings',
+        loadComponent: () => import('./pages/settings/settings.page').then( m => m.SettingsPage)
+      },
+      {
+        path: 'threat-details',
+        loadComponent: () => import('./pages/threat-detection/threat-details/threat-details.page').then( m => m.ThreatDetailsPage)
+      },
+    ]
   },
-  {
-    path: 'proof-of-concept',
-    loadComponent: () =>
-      import('./poc/proof-of-concept/proof-of-concept.page').then(
-        (m) => m.ProofOfConceptPage
-      ),
-  },
+
+
 ];

@@ -14,6 +14,9 @@ project(':capacitor-app').projectDir = new File('../node_modules/@capacitor/app/
 include ':capacitor-geolocation'
 project(':capacitor-geolocation').projectDir = new File('../node_modules/@capacitor/geolocation/android')
 
+include ':capacitor-google-maps'
+project(':capacitor-google-maps').projectDir = new File('../node_modules/@capacitor/google-maps/android')
+
 include ':capacitor-haptics'
 project(':capacitor-haptics').projectDir = new File('../node_modules/@capacitor/haptics/android')
 
@@ -28,3 +31,6 @@ project(':capacitor-status-bar').projectDir = new File('../node_modules/@capacit
 
 include ':ble-background-scan'
 project(':ble-background-scan').projectDir = new File('../../ble-background-scan-plugin/ble-background-scan/android')
+
+include ':capacitor-native-settings'
+project(':capacitor-native-settings').projectDir = new File('../node_modules/capacitor-native-settings/android')

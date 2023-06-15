@@ -14,5 +14,4 @@ ext {
     androidxEspressoCoreVersion = '3.5.1'
     cordovaAndroidVersion = '10.1.1'
     $firebaseCrashlyticsVersion = '18.3.6'
-
 }

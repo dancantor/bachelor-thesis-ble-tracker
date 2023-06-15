@@ -6,7 +6,6 @@ import { ScanningService } from '@ble/services/scanning.service';
 import { FirebaseCrashlytics } from '@capacitor-community/firebase-crashlytics';
 import { IonicModule, Platform } from '@ionic/angular';
 import { from, interval, mergeMap, tap } from 'rxjs';
-import { ScanResultAbstraction } from '@ble/data/scan-result.abstraction';
 import { Store } from '@ngrx/store';
 import { AppState } from '@core/store/state/app.state';
 import { BackgroundFetchFacade } from '@core/store/facades/background-fetch.facade';
@@ -19,31 +18,16 @@ import { BleBackgroundScan } from 'ble-background-scan';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
 })
-export class ProofOfConceptPage implements OnInit, OnDestroy, AfterContentInit {
+export class ProofOfConceptPage implements OnInit {
   constructor(
     private scanningService: ScanningService,
-    private foregroundService: ForegroundService,
     private backgroundFetchFacade: BackgroundFetchFacade,
     private platform: Platform
     )
     {}
-  ngAfterContentInit(): void {
-    // this.foregroundService.start('Scanning for devices', 'Background Task', 'bluetooth', 3, 19);
-  }
 
   ngOnInit() {
-    if (this.platform.is("android")) {
-      BleBackgroundScan.initialize().then(() =>
-        this.backgroundFetchFacade.changeStatusOfIsBackgroundFetchPluginInitialized(true),
-      );
-      this.backgroundFetchFacade.shouldBeginWorker$.subscribe((shouldBeginWorker: boolean) => {
-        if (shouldBeginWorker) {
-          this.backgroundFetchFacade.changeStatusOfHasStartedBackgroundFetch(true);
-          BleBackgroundScan.initiateBackgroundScan();
-          BleBackgroundScan.initiateThreatDetection();
-        }
-      })
-    }
+    
     //   this.scanningService.initializeBLEUse().subscribe(() => {
   //     this.scanningService.startScanningForDevices();
   //   });
@@ -60,15 +44,5 @@ export class ProofOfConceptPage implements OnInit, OnDestroy, AfterContentInit {
   //   interval(10000).subscribe(() => {
   //     console.log('still emiting');
   //   })
-  }
-
-  onSendDataToCrashlytics(): void {
-    this.foregroundService.stop();
-    FirebaseCrashlytics.crash({message: `Execution ended at ${new Date()}`});
-  }
-
-  ngOnDestroy() {
-    this.foregroundService.stop();
-    FirebaseCrashlytics.crash({message: `Execution ended at ${new Date()}`});
   }
 }

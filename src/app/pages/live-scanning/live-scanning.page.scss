@@ -1,0 +1,15 @@
+.no-devices {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  ion-img {
+    width: 200px;
+  }
+  div {
+    color: var(--font-color-2);
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

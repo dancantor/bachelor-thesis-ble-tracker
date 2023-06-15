@@ -15,11 +15,13 @@ def capacitor_pods
   pod 'CapacitorCommunityFirebaseCrashlytics', :path => '../../node_modules/@capacitor-community/firebase-crashlytics'
   pod 'CapacitorApp', :path => '../../node_modules/@capacitor/app'
   pod 'CapacitorGeolocation', :path => '../../node_modules/@capacitor/geolocation'
+  pod 'CapacitorGoogleMaps', :path => '../../node_modules/@capacitor/google-maps'
   pod 'CapacitorHaptics', :path => '../../node_modules/@capacitor/haptics'
   pod 'CapacitorKeyboard', :path => '../../node_modules/@capacitor/keyboard'
   pod 'CapacitorLocalNotifications', :path => '../../node_modules/@capacitor/local-notifications'
   pod 'CapacitorStatusBar', :path => '../../node_modules/@capacitor/status-bar'
   pod 'BleBackgroundScan', :path => '../../../ble-background-scan-plugin/ble-background-scan'
+  pod 'CapacitorNativeSettings', :path => '../../node_modules/capacitor-native-settings'
 end
 
 target 'App' do

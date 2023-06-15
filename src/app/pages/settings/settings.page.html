@@ -1,0 +1,36 @@
+<app-header titleText="Settings"></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item button (click)="onOpenSettingsClick()">
+      <div class="item-container">
+        <ion-icon name="map-sharp"></ion-icon>
+        <div class="title-and-description">
+          <div class="title">
+            Manage Permissions
+          </div>
+          <div class="description">
+            If enabled, more detailed tracking
+            information can be provided when
+            beign tracked.
+          </div>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item button>
+      <div class="item-container">
+        <ion-icon name="checkmark-circle-sharp" class="checked-icon"></ion-icon>
+        <div class="title-and-description">
+          <div class="title">
+            Set non-threatening devices
+          </div>
+          <div class="description">
+            Add your own devices to the app,
+            so that you can find with certainty
+            the ones that are possibly threatening .
+          </div>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

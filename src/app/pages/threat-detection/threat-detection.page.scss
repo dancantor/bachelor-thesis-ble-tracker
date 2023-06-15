@@ -1,0 +1,30 @@
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 24px 0px 0px 16px;
+}
+.device-container {
+  display: flex;
+  overflow: scroll;
+  width: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .no-devices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    ion-img {
+      width: 200px;
+    }
+    div {
+      color: var(--font-color-2);
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
