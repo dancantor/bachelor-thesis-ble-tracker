@@ -29,6 +29,10 @@ export const routes: Routes = [
       },
     ]
   },
+  {
+    path: 'non-threatening-modal',
+    loadComponent: () => import('./pages/settings/non-threatening-modal/non-threatening-modal.page').then( m => m.NonThreateningModalPage)
+  },
 
 
 ];

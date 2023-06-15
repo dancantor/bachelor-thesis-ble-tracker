@@ -11,6 +11,7 @@ import { AppState } from "../state/app.state";
 })
 export class LiveScanningFacade {
   public liveScanResults$: Observable<LiveScanningResult[]> = this.store.select(LiveScanningSelectors.selectScanResults);
+  public isBluetoothLEInitialized$: Observable<boolean> = this.store.select(LiveScanningSelectors.selectisBluetoothLEInitialized);
 
   public initializeBleUse(): void {
     this.store.dispatch(LiveScanningActions.initializeBleUse());

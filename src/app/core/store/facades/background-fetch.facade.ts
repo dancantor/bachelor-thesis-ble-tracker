@@ -15,7 +15,9 @@ export class BackgroundFetchFacade {
   public hasStartedBackgroundFetch$: Observable<boolean> = this.store.select(
     BackgroundFetchSelectors.selectHasStartedBackgroundFetch
   );
-
+  public isBackgroundFetchPluginInitialized$: Observable<boolean> = this.store.select(
+    BackgroundFetchSelectors.selectIsBackgroundFetchPluginInitialized
+  );
   public shouldBeginWorker$: Observable<boolean> = this.store
     .select(BackgroundFetchSelectors.selectIsBackgroundFetchPluginInitialized)
     .pipe(

@@ -5,6 +5,10 @@ export const initializeBleUse = createAction(
   '[Live Scan] Initialize BLE use'
 );
 
+export const initializedBleUseSuccess = createAction(
+  '[Live Scan] Initialized BLE use successfully'
+);
+
 export const beginScanningForDevices = createAction(
   '[Live Scan] Begin scanning for devices'
 );

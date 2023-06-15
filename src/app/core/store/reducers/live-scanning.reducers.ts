@@ -5,11 +5,16 @@ import * as LiveScanningActions from "../actions/live-scanning.actions"
 
 export const initialLiveScanningState: LiveScanningState = {
   isScanning: false,
-  scannedDevices: []
+  scannedDevices: [],
+  isBluetoothLEInitialised: false
 };
 
 export const liveScanningReducer = createReducer(
   initialLiveScanningState,
+  on(LiveScanningActions.initializedBleUseSuccess, (liveScanningState: LiveScanningState, _) => ({
+    ...liveScanningState,
+    isBluetoothLEInitialised: true
+  })),
   on(LiveScanningActions.beginScanningForDevices, (liveScanningState: LiveScanningState, _) => ({
     ...liveScanningState,
     isScanning: true

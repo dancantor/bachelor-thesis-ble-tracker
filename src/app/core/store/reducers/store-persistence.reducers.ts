@@ -34,6 +34,9 @@ export const hydrationMetaReducer = (reducer: ActionReducer<AppState>): ActionRe
         },
         liveScanningState: {
           ...initialLiveScanningState
+        },
+        settingsState: {
+          ...action.state.settingsState
         }
       };
     } else {

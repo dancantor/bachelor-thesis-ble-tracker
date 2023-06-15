@@ -1,0 +1,27 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Set non-threatening devices</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-input label="Ignored AirTags:" type="number" [value]="nrOfAirTags$ | async"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Ignored SmartTags:" type="number" [value]="nrOfSmartTags$ | async"></ion-input>
+  </ion-item>
+  <div class="tile-devices">
+    <div class="tile-title">Ignored Tiles</div>
+    <div class="tile-element" *ngFor="let ignoredTile of tileBlacklist$ | async">
+      <ion-select [disabled]="true" [value]="ignoredTile">
+        <ion-select-option [value]="ignoredTile">{{ignoredTile}}</ion-select-option>
+      </ion-select>
+      <ion-icon name="close" (click)="removeTile(ignoredTile)"></ion-icon>
+    </div>
+    <ion-select #select (ionChange)="newTileSelected($event)" placeholder="Select new tile">
+      <ion-select-option *ngFor="let notIgnoredTile of tilesNotInBlacklist$ | async" [value]="notIgnoredTile">{{notIgnoredTile}}</ion-select-option>
+    </ion-select>
+  </div>
+  <ion-button (click)="updatePluginWithData()">Set owned devices</ion-button>
+</ion-content>

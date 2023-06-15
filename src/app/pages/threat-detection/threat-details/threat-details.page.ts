@@ -21,7 +21,7 @@ export class ThreatDetailsPage implements OnInit {
   selectedThreateningDevice$: Observable<PossibleThreateningTracker | null> = this.backgroundFetchFacade.selectedThreateningDevice$;
   selectedThreateningDevice!: PossibleThreateningTracker | null;
   markersInfo: {[markerId: string]: {deviceId: string; datetime: string}} = {}
-  private API_KEY = "AIzaSyAj09UHSXlchRgVc7Ypig3NFeVDkZJUpG0"
+  private API_KEY = "AIzaSyDkP4wofYC3WM5KDKKOuxWmwZzZd86Nrq4"
   isMapLoaded = false;
   map!: GoogleMap;
   @ViewChild('map') mapRef!: ElementRef;
@@ -40,7 +40,6 @@ export class ThreatDetailsPage implements OnInit {
   }
 
   async loadMap() {
-    console.log(this.mapRef)
     if (this.mapRef !== undefined && this.selectedThreateningDevice !== null) {
       this.map = await GoogleMap.create({
         id: 'my-map', // Unique identifier for this map instance

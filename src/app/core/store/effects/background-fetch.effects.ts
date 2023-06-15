@@ -34,7 +34,6 @@ export class BackgroundFetchEffects {
       ofType(BackgroundFetchActions.fetchThreateningDevices),
       exhaustMap(() => from(BleBackgroundScan.getThreateningDevices())),
       map((possibleThreateningTrackerList) => this.threatDetectionService.splitDetectedThreatsBasedOnDeviceModel(possibleThreateningTrackerList)),
-      tap((p) => console.log(p)),
       map((possibleThreatsByDeviceModel) => BackgroundFetchActions.fetchedThreateningDevicesSuccessfully({possibleThreatsByDeviceModel})),
 
       // catchError((er) => of(BackgroundFetchActions.fetchedThreateningDevicesFail()))

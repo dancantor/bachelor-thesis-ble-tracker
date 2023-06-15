@@ -9,3 +9,8 @@ export const selectScanResults = createSelector(
   selectLiveScanningState,
   (state: LiveScanningState): LiveScanningResult[] => state.scannedDevices
 );
+
+export const selectisBluetoothLEInitialized = createSelector(
+  selectLiveScanningState,
+  (state: LiveScanningState): boolean => state.isBluetoothLEInitialised
+);

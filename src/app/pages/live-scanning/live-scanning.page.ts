@@ -6,7 +6,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { ScanResultComponent } from 'src/app/components/scan-result/scan-result.component';
 import { LiveScanningFacade } from '@core/store/facades/live-scanning.facade';
 import { LiveScanningResult } from '@ble/data/live-scanning-result';
-import { Observable, interval, Subscription } from 'rxjs';
+import { Observable, interval, Subscription, filter, first, tap } from 'rxjs';
 
 @Component({
   selector: 'app-live-scanning',
@@ -24,7 +24,12 @@ export class LiveScanningPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.liveScanningFacade.beginScanningForDevices();
+    this.liveScanningFacade.isBluetoothLEInitialized$.pipe(
+      filter((isBluetoothLEInitialized) => isBluetoothLEInitialized),
+      first()
+    ).subscribe(() => {
+      this.liveScanningFacade.beginScanningForDevices();
+    })
     this.intervalSubscription = interval(10000).subscribe(() => {
       this.liveScanningFacade.stopScanningForDevices();
       this.liveScanningFacade.beginScanningForDevices();

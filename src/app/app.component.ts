@@ -3,6 +3,7 @@ import { IonicModule, Platform } from '@ionic/angular';
 import { StorePersistenceFacade } from '@core/store/facades/store-persistence.facade';
 import { AppState } from '@core/store/state/app.state';
 import { Subscription } from 'rxjs';
+import { filter, first, tap } from 'rxjs/operators';
 import { LiveScanningFacade } from '@core/store/facades/live-scanning.facade';
 import { BackgroundFetchFacade } from '@core/store/facades/background-fetch.facade';
 
@@ -26,8 +27,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.stateSubscription.unsubscribe();
   }
   ngOnInit(): void {
+    this.backgroundFetchFacade.isBackgroundFetchPluginInitialized$.pipe(
+      filter((result) => result),
+      first(),
+    ).subscribe(() => this.liveScanningFacade.initializeBleUse())
     this.stateSubscription = this.storePersistanceFacade.hasStartedBackgroundFetch$.subscribe((appState: AppState) => this.storePersistanceFacade.saveStateOfStore(appState))
-    this.liveScanningFacade.initializeBleUse();
     if (this.platform.is("android")) {
       this.backgroundFetchFacade.initializeBackgroundFetchPlugin();
       this.backgroundFetchFacade.shouldBeginWorker$.subscribe((shouldBeginWorker: boolean) => {
