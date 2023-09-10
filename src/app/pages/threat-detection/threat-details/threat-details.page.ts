@@ -21,7 +21,7 @@ export class ThreatDetailsPage implements OnInit {
   selectedThreateningDevice$: Observable<PossibleThreateningTracker | null> = this.backgroundFetchFacade.selectedThreateningDevice$;
   selectedThreateningDevice!: PossibleThreateningTracker | null;
   markersInfo: {[markerId: string]: {deviceId: string; datetime: string}} = {}
-  private API_KEY = "AIzaSyDkP4wofYC3WM5KDKKOuxWmwZzZd86Nrq4"
+  private API_KEY = "the api key was removed"
   isMapLoaded = false;
   map!: GoogleMap;
   @ViewChild('map') mapRef!: ElementRef;
